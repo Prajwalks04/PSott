@@ -8,7 +8,6 @@ from utils import broadcast_messages
 import asyncio
         
 @Client.on_message(filters.command("broadcast") & filters.user(ADMINS) & filters.reply)
-# https://t.me/LazyDeveoper
 async def verupikkals(bot, message):
     users = await db.get_all_users()
     b_msg = message.reply_to_message
@@ -39,4 +38,4 @@ async def verupikkals(bot, message):
         if not done % 20:
             await sts.edit(f"PS Broadcast is in progress:\n\nTotal Users {total_users}\nCompleted: {done} / {total_users}\nSuccess: {success}\nBlocked: {blocked}\nDeleted: {deleted}")    
     time_taken = datetime.timedelta(seconds=int(time.time()-start_time))
-    await sts.edit(f"Lazy Broadcast is Completed:\nCompleted in {time_taken} seconds.\n\nTotal Users {total_users}\nCompleted: {done} / {total_users}\nSuccess: {success}\nBlocked: {blocked}\nDeleted: {deleted}")
+    await sts.edit(f"Broadcast is Completed:\nCompleted in {time_taken} seconds.\n\nTotal Users {total_users}\nCompleted: {done} / {total_users}\nSuccess: {success}\nBlocked: {blocked}\nDeleted: {deleted}")
